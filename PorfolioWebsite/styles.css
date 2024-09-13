@@ -1,0 +1,390 @@
+/* General */
+html {
+  scroll-behavior: smooth;
+}
+
+a:link {
+  text-decoration: none;
+  color: black;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+body {
+    margin: 0;
+    overflow-x: hidden;
+}
+/* Pre-Loader */
+
+#pre-loader {
+    background: #FFFFFF url(Final_Comp.gif) no-repeat center center;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+    background-size: 50%;
+}
+
+/* Mouse Follower */
+
+.mouse-follower {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    pointer-events: none;
+    transition: transform 0.1s ease-out;
+    z-index: 1000;
+    mix-blend-mode: difference;
+}
+
+/* Hero Section Background Animation */
+
+/* .bubble-container {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #59515153;
+    top: 0;
+    left: 0;
+    margin-bottom: 0;
+    z-index: -1;  Ensure it stays behind other content 
+  }
+  
+  .bubble {
+    position: absolute;
+    bottom: -100px;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.6);  Light blue with transparency 
+    border-radius: 50%;
+    animation: moveUp 10s infinite;
+    opacity: 0.7;
+  }
+  
+  @keyframes moveUp {
+    0% {
+      transform: translateY(10vh);
+      opacity: 0.7;
+    }
+    100% {
+      transform: translateY(-130vh); Move upwards beyond the visible area
+      opacity: 0.3;
+    }
+  } */
+  
+  @keyframes waveSide {
+    0% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(var(--horizontal-movement), -150vh); /* Move to a random side */
+    }
+    100% {
+      transform: translateX(0); /* Return to the original position */
+    }
+  }
+  
+/* Navigation */
+
+nav {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.097);
+    z-index: 1;
+    font-size: 20px;
+}
+
+.main-navigation {
+    width: 70%;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.logo-container {
+    width: 15%;
+}
+
+.menu-button-container {
+    width: 15%;
+}
+
+.menu-button {
+    height: 100%;
+    width: 50%;
+    position: relative;
+    float: right;
+    right: 25%;
+}
+
+/* Hero */
+
+#hero {
+  position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: url(test.png);
+    background-size:contain;
+    background-position: top 100px;
+    background-repeat: no-repeat;
+}
+
+.background-animation{
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  position: absolute;
+}
+
+.background-line {
+  position: absolute;
+  width: 1px;
+  height: 750px;
+  background-color: black;
+  z-index: 1;
+  margin: 1rem 112rem;
+  opacity: .2;
+  animation: backgroundMovement 8s infinite ease-in-out;
+}
+
+.background-line-2 {
+  background-color: black;
+  width: 750px;
+  height: 3px;
+  z-index: 1;
+  position: absolute;
+  margin: 10rem 84rem;
+  opacity: 0.2;
+  animation: backgroundMovementSecondary 8s infinite ease-in-out;
+}
+
+@keyframes backgroundMovementSecondary {
+  0% {
+    transform: translateX(0%);
+  }
+  50% {
+    transform: translateX(10%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.background-line-3 {
+  position: absolute;
+  width: 3px;
+  height: 450px;
+  background-color: black;
+  z-index: 1;
+  margin: 20rem 60rem;
+  animation: backgroundMovement 10s infinite ease-in-out;
+  opacity: 0.2;
+}
+
+.background-line-4 {
+  background-color: black;
+  width: 650px;
+  height: 1px;
+  z-index: 1;
+  position: absolute;
+  margin: 45rem 57rem;
+  opacity: 0.2;
+  animation: backgroundMovementSecondary 8s infinite ease-in-out;
+}
+
+@keyframes backgroundMovement {
+  0% {
+    transform: translateY(0%);
+  }
+  50% {
+    transform: translateY(10%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+.portfolioshot{
+  position: relative;
+  bottom: 2px;
+}
+
+.hero-content-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    z-index: 1;
+}
+
+.hero-content {
+  margin: 20rem 10rem;
+  width: 23%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-content h3 {
+  font-size: 6rem;
+  width: 100%;
+  margin: 0 -35rem;
+  letter-spacing: 4px;
+  text-align: end;
+  position: absolute;
+}
+
+.text-container {
+  position: relative;
+  height: 25px;
+  overflow: visible;
+  width: 39%;
+  margin: 7.4rem 75rem;
+}
+
+.text-span {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  top: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 30px;
+}
+
+.text-span.active{
+  opacity: 1;
+}
+
+@keyframes scrollLetters {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+.text-span .letter {
+  display: inline-block;
+  transform: translateY(100%);
+  animation: scrollLetters 0.5s forwards;
+  animation-delay: calc(var(--1) * 0.1s);
+}
+
+.text-span .letter-space {
+  display: inline-block;
+  width: 0.5rem;
+}
+
+.text-container-2 {
+  position: absolute;
+  margin: 25rem 68rem;
+  width: 11%;
+  height: 15%;
+  font-size: 2rem;
+}
+
+.text-container-3 {
+  position: absolute;
+  font-size: 2rem;
+  width: 50%;
+  margin: 12rem 50rem;
+}
+
+/* About */
+
+#about {
+    background-color: black;
+    width: 100vw;
+    height: 120vh;
+    z-index: 1;
+}
+
+/* Contact */
+
+#contact{
+    width: 100vw;
+    height: 100vh;
+}
+/* Footer */
+
+/* Interactive button follow */
+
+.button-container {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 35rem 65rem;
+  width: 15%;
+  height: 20%;
+  border-radius: 2rem;
+}
+
+.interactive-button {
+  position: relative;
+  font-size: 16px;
+  width: 65%;
+  height: 30%;
+  border: 3px white solid;
+  background: rgba(128, 128, 128, 0.147);
+  color: black;
+  border-radius: 2rem;
+  transition: transform 0.3s ease;
+}
+
+.interactive-button:hover {
+  background-color: black;
+  color: white;
+  transition: .5s;
+  border: 3px rgb(87, 85, 85) solid;
+}
+
+.button-container-2 {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 35rem 85rem;
+  width: 15%;
+  height: 20%;
+  border-radius: 2rem;
+}
+
+.interactive-button-2 {
+  position: relative;
+  font-size: 16px;
+  width: 65%;
+  height: 30%;
+  border: 3px white solid;
+  background: rgba(128, 128, 128, 0.147);
+  color: black;
+  border-radius: 2rem;
+  transition: transform 0.3s ease;
+}
+
+.interactive-button-2:hover {
+  background-color: black;
+  color: white;
+  transition: .5s;
+  border: 3px rgb(87, 85, 85) solid;
+}
+
+.interactive-button.snap-back {
+  transition: transform 0.6s ease; /* Snaps back more slowly */
+}
